@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+const router = express.Router();
 const mysql = require('mysql2');
 
 // Create a MySQL connection
@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 });
 
 /* Candidate Registration */
-rrouter.post('/', (req, res) => {
+router.post('/', (req, res) => {
     // Extracting candidate data from request body
     let { candidate_name, candidate_phoneno, candidate_email, candidate_password, candidate_age, district_id, candidate_gender, date_of_registration } = req.body;
 
@@ -39,7 +39,7 @@ rrouter.post('/', (req, res) => {
                 res.status(201).send({ message: 'Candidate registered successfully' }); // 201 Created
             });
         } else {
-            res.status(409).send({ message: 'Candidate already exists' });
+            res.status(409).send({ message: 'Candidate already exists' }); // Conflict status
         }
     });
 });

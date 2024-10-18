@@ -52,15 +52,16 @@ export class CandidateregComponent implements OnInit {
     console.log("Form values:", this.candidateregForm.value); // Debugging log
     this.dbservice.candidatereg(this.candidateregForm.value).then((confirmation: any) => {
         if (confirmation.message === "Success") {
-            alert(' Details Created');
+            alert('Details Created');
             this.router.navigate(['/Guest/Home']);
         } else {
-            alert('Data already exists, please check your data');
+            alert(confirmation.message); // Use the message returned from the backend
         }
     }).catch((error) => {
         console.error('Registration error:', error);
         alert('There was an error during registration. Please try again.');
     });
 }
+
 
 }

@@ -27,5 +27,15 @@ server.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
 });
 
-// Define your routes
 
+
+// Connect to the database
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to the database:', err.stack);
+    return;
+  }
+  console.log('Connected to the database');
+});
+
+module.exports = connection;
