@@ -1,0 +1,70 @@
+<div class="main-panel">        
+  <div class="content-wrapper">
+      <div class="row">
+          <div class="container" style="width: 1200px; margin-top: 10%; margin-bottom: 2%;">
+              <div class="card">
+                  <div class="card-body">
+                      <h4 class="card-title">Tutor Registration</h4>
+                      <form [formGroup]="tutorregForm" class="forms-sample" (ngSubmit)="onSubmit()">
+                          <div class="form-group">
+                              <label for="exampleInputName1">Name</label>
+                              <label *ngIf="tutorregForm.get('tutor_name').invalid && validationstatus" class="text-danger">Please enter your name</label>
+                              <input type="text" class="form-control" id="exampleInputName1" formControlName="tutor_name" placeholder="Name">
+                          </div>
+
+                          <div class="form-group">
+                              <label for="exampleInputPhone">Phone</label>
+                              <label *ngIf="tutorregForm.get('tutor_phoneno').invalid && validationstatus" class="text-danger">Please enter your phone number</label>
+                              <input type="tel" class="form-control" id="exampleInputPhone" formControlName="tutor_phoneno" placeholder="Phone">
+                          </div>
+
+                          <div class="form-group">
+                              <label for="exampleInputEmail3">Email address</label>
+                              <label *ngIf="tutorregForm.get('tutor_email').invalid && validationstatus" class="text-danger">Please enter your email</label>
+                              <input type="email" class="form-control" id="exampleInputEmail3" formControlName="tutor_email" placeholder="Email">
+                          </div>
+
+                          <div class="form-group">
+                              <label for="exampleInputPassword4">Password</label>
+                              <label *ngIf="tutorregForm.get('tutor_password').invalid && validationstatus" class="text-danger">Please enter your password</label>
+                              <input type="password" class="form-control" id="exampleInputPassword4" formControlName="tutor_password" placeholder="Password">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="exampleSelectQualification">Qualification</label>
+                            <select class="form-control" formControlName="qualification_id" id="exampleSelectQualification">
+                                <option value="" disabled selected>Select Qualification</option>
+                                <option  *ngFor="let data of Qualificationdetails" value="{{data.qualification_id}}">{{data.qualification_title}}</option>
+                            </select>
+                            <label *ngIf="tutorregForm.get('qualification_id').invalid && validationstatus" class="text-danger">Please select your qualification</label>
+                        </div>
+
+                          <div class="form-group">
+                              <label for="exampleSelectGender">Gender</label>
+                              <select class="form-control" formControlName="tutor_gender" id="exampleSelectGender">
+                                  <option value="" disabled selected>Select Gender</option>
+                                  <option value="Male">Male</option>
+                                  <option value="Female">Female</option>
+                                  <option value="Other">Other</option>
+                              </select>
+                              <label *ngIf="tutorregForm.get('tutor_gender').invalid && validationstatus" class="text-danger">Please select your gender</label>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="exampleSelectDistrict">District</label>
+                              <select class="form-control" formControlName="district_id" id="exampleSelectDistrict">
+                                  <option value="" disabled selected>Select District</option>
+                                  <option *ngFor="let row of Districtdetails" [value]="row.district_id">{{row.district_name}}</option>
+                              </select>
+                              <label *ngIf="tutorregForm.get('district_id').invalid && validationstatus" class="text-danger">Please select your district</label>
+                          </div>
+
+                          <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                          <button type="button" class="btn btn-light" (click)="tutorregForm.reset()">Cancel</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

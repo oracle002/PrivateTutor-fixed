@@ -1,0 +1,40 @@
+<div class="main-panel">        
+    <div class="content-wrapper">
+      <div class="row">
+        
+        
+        <div class="col-12 grid-margin stretch-card" style="width:1200px;margin-left:4px; margin-top: 2%;">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Edit Qualification</h4>
+            
+              <form [formGroup]='editqualificationForm'class="forms-sample">
+                <div class="form-group">
+                  <input type="hidden" formControlName="qualification_id" />
+                  <label style="padding-right: 3px;" for="exampleInputName1">Qualification</label>
+                  <!--<label *ngIf="qualificationForm.controls['qualification'].errors['required'] && validationstatus"class="text-danger">Please enter the Qualification</label>-->
+                  <input type="text" class="form-control" id="exampleInputName1" formControlName="qualification_title" placeholder="Qualification">
+                </div>
+                <div class="form-group">
+                  <label style="padding-right: 3px;" for="exampleTextarea1">Description</label>
+                  <!--<label *ngIf="qualificationForm.controls['qdescription'].errors['required'] && validationstatus"class="text-danger">Please enter the Qualification description</label>-->
+                  <textarea class="form-control" formControlName="qualification_description" id="exampleTextarea1" rows="4"></textarea>
+                </div>
+                <button type="submit" (click)="OnSubmit()" class="btn btn-primary mr-2">Submit</button>
+                <button [routerLink]="['/adminmaster/qualification']" class="btn btn-light">Cancel</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      
+       
+       
+       
+        
+       
+        
+      </div>
+    </div>
+    <!-- content-wrapper ends -->
+    <!-- partial:../../partials/_footer.html -->
+    

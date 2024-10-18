@@ -1,0 +1,37 @@
+<div style="margin-top: 10%;" align="center">
+    <div>
+        <h2>TUTORS</h2>
+    </div>
+
+
+
+    <!-- Team Item -->
+
+    <div style="margin-top: 7%; margin-left: 2%; margin-right: 2%;">
+
+
+        <div class="row team_row">
+            <div class="col-lg-3 col-md-6 team_col"  *ngFor="let data of tutordetails">
+                <div class="team_item">
+                    <div class="team_image"><img src="http://localhost:3000/images/{{data.profile_pic}}" class="avatar img-Trulli img-thumbnail" alt="avatar"></div>
+                    <div class="team_body">
+                        <div class="team_title"><a [routerLink]="['/candidatemaster/moreview',data.tutor_id]">{{data.tutor_name}}</a></div>
+                        <div class="team_subtitle" >{{data.qualification_title}}</div>
+                        <!-- <div class="team_subtitle">view more</div> -->
+                        <div class="social_list">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+   
+    </div>
+
+
+</div>

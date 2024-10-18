@@ -1,0 +1,66 @@
+<div class="main-panel">        
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="container" style="width: 1200px; margin-top: 10%; margin-bottom: 2%;">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Student Registration</h4>
+                        <form [formGroup]="candidateregForm" class="forms-sample" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label for="exampleInputName1">Name</label>
+                                <label *ngIf="candidateregForm.get('candidate_name').invalid && validationstatus" class="text-danger">Please enter your name</label>
+                                <input type="text" class="form-control" id="exampleInputName1" formControlName="candidate_name" placeholder="Name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPhone">Phone</label>
+                                <label *ngIf="candidateregForm.get('candidate_phoneno').invalid && validationstatus" class="text-danger">Please enter your phone number</label>
+                                <input type="tel" class="form-control" id="exampleInputPhone" formControlName="candidate_phoneno" placeholder="Phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail3">Email address</label>
+                                <label *ngIf="candidateregForm.get('candidate_email').invalid && validationstatus" class="text-danger">Please enter your email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail3" formControlName="candidate_email" placeholder="Email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword4">Password</label>
+                                <label *ngIf="candidateregForm.get('candidate_password').invalid && validationstatus" class="text-danger">Please enter your password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword4" formControlName="candidate_password" placeholder="Password">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputAge">Age</label>
+                                <label *ngIf="candidateregForm.get('candidate_age').invalid && validationstatus" class="text-danger">Please enter your age</label>
+                                <input type="number" class="form-control" id="exampleInputAge" formControlName="candidate_age" placeholder="Age" min="1">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleSelectGender">Gender</label>
+                                <select class="form-control" formControlName="candidate_gender" id="exampleSelectGender">
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <label *ngIf="candidateregForm.get('candidate_gender').invalid && validationstatus" class="text-danger">Please select your gender</label>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleSelectDistrict">District</label>
+                                <select class="form-control" formControlName="district_id" id="exampleSelectDistrict">
+                                    <option value="" disabled selected>Select District</option>
+                                    <option *ngFor="let row of Districtdetails" [value]="row.district_id">{{row.district_name}}</option>
+                                </select>
+                                <label *ngIf="candidateregForm.get('district_id').invalid && validationstatus" class="text-danger">Please select your district</label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            <button type="button" class="btn btn-light" (click)="candidateregForm.reset()">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

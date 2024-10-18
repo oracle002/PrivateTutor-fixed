@@ -1,0 +1,66 @@
+<div class="main-panel" style="width:1200px; margin-top: 5%;">
+    <div class="container">
+
+
+      <form [formGroup]="getsubjectForm">
+      
+      <div class="row">
+        <div class="col-xl-8 grid-margin stretch-card flex-column">
+            <h5 class="mb-2 text-titlecase mb-4">Subjects</h5>
+            
+          
+        </div>
+        
+        
+        <div class="form-group" style="width: 500px;">
+                        <label style="margin-left: 13px;" for="exampleSelectGender">Choose subject</label>
+                          <select  class="form-control" formControlName="subject_id" id="exampleSelectGender" style="margin-bottom: 10px; margin-left: 13px;">
+                            <option>select</option>
+                             <option *ngFor="let data of Subjectsdetails" value="{{data.subject_id}}"  >{{data.subject_title}}</option>
+                          </select>
+                          <button type="submit"  class="btn btn-primary mr-2" (click)="OnSubmit()" style="margin-left: 440px;">Submit</button>
+                        </div>
+ 
+      </div>
+     </form>
+  
+<div class="row">
+    <div class="col-md-12">
+       
+      <div class="card">
+        <div class="table-responsive pt-3">
+          <table class="table table-striped project-orders-table">
+            <thead>
+              <tr>
+                <th class="ml-5">No</th>
+                <th>Material Name</th>
+                <th>Material description</th>
+                <th>Material Link</th>
+                <th>Material thumbnail</th>
+                
+                <th>Date</th>
+                 </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of Materialdetails,let i=index">
+                <td>{{i+1}}</td>
+                <td>{{row.material_title}}</td>
+                <td>{{row.material_description}}</td>
+                <td>{{row.material_referencelink}}</td>
+                <td><img src="http://localhost:3000/images/{{row.material_thumbnail}}" style="height:60px;width:60px;"></td>
+                <td>{{row.material_postdate}}</td>
+                
+                <td>
+                  <button type="button" class="btn btn-danger btn-sm btn-icon-text" (click)="deletematerial(row.material_id)">
+                  Delete
+                  <i class="typcn typcn-delete-outline btn-icon-append"></i>                          
+                </button>
+              </td>
+              </tr> 
+             
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,122 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<hr>
+<div class="container bootstrap snippet" style="margin-top: 10%;" *ngFor="let data of tutordetails">
+    <div class="row">
+  		<div class="col-sm-10"><h1>{{data.tutor_name}}</h1></div>
+    	<div class="col-sm-2"><a href="/users" class="pull-right"></a></div>
+    </div>
+
+    <div class="row">
+  		<div class="col-sm-3"><!--left col-->
+              
+      
+      <div class="text-center" >
+        <img src="http://localhost:3000/images/{{data.profile_pic}}" class="avatar img-Trulli img-thumbnail" alt="avatar">
+        
+      </div>
+      <br>
+
+               
+          
+          
+          
+         
+               
+         
+          
+        </div><!--/col-3-->
+    	<div class="col-sm-9">
+            
+
+              
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+                <hr>
+                  
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="first_name"><h4>Phone: {{data.tutor_phoneno}}</h4></label>
+                          </div>
+                      </div>
+                      
+          
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="phone"><h4>Email: {{data.tutor_email}}</h4></label>
+                          </div>
+                      </div>
+          
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                             <label for="mobile"><h4>Qualification: {{data.qualification_title}}</h4></label>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>District: {{data.district_name}}</h4></label>
+                          </div>
+                      </div>
+                      <div class="form-group" *ngFor="let row of tutorsubjectdetails,let i=index">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Subject {{i+1}}: {{row.subject_title}}</h4></label>
+                          </div>
+                      </div>
+                     
+                      <div class="form-group">
+                              <form [formGroup]="requestForm ">   
+                            <select  class="form-control" formControlName="subject_id" id="exampleSelectGender" style="width: 600px; margin-left: 13px;">
+                                <option>select</option>
+                                 <option *ngFor="let data of tutorsubjectdetails" value="{{data.subject_id}}">{{data.subject_title}}</option>
+                              </select>
+                            </form>
+                        </div>
+                        
+                      <div class="form-group" >
+                        
+                           <div class="col-xs-12" style="margin-bottom: 20%;">
+                                <br>
+                              	<button class="btn btn-lg btn-info" type="submit" (click)="OnSubmit()"><i class="glyphicon glyphicon-ok-sign"></i> Send Request</button>
+                                  <button *ngFor="let data of tutordetails" class="btn btn-lg btn-info" style="margin-left: 20px;" type="submit" [routerLink]="['/candidatemaster/viewmaterial',data.tutor_id]"><i class="glyphicon glyphicon-ok-sign"></i> View Material</button>
+                                
+                            </div> 
+                            
+                      </div>
+                      
+              	
+              
+              
+              
+             </div>
+          </div><!--/tab-content-->
+
+        </div><!--/col-9-->
+   
+    </div><!--/row-->
+
+</div>
+
+
+<!-- </form> -->
